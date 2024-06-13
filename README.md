@@ -1,8 +1,68 @@
-# Subleasy
+### Subleasy (MVP)
 
-Initially wanted this to be just another Airbnb clone but decided to take it to a direction that both gives me the chance to learn but also be able to contribute the community instead!
+#### Overview
+The Long-Term Subleasing Platform is a web application designed to assist students and other users in finding and listing long-term subleases for residential properties. The platform aims to streamline the subleasing process, providing a more focused and convenient solution compared to general marketplaces like Facebook Marketplace. Built using the MERN stack (MongoDB, Express.js, React, Node.js), this MVP (Minimum Viable Product) will help users rent and book places for extended periods, addressing the specific needs of students who need to sublease their accommodations during breaks.
 
-A little bit about the project: as an out of state student, I understand the pain of every student whose parents' house(s) is/are not driving distance to university and they have to sublease their place every summer to not waste some of their hard-earned income. I myself have been struggling with this exact problem. Sure, there are places where people have been doing it such as Marketplace, etc. but marketplace is but a virtual garage sales after all. Searches showing kitchenware and household appliances where you search "apartment for lease" isn't exactly convenient and easy and believe me, I've spent at least 500 hours on Marketplace.
+#### Core Features
 
-So... I've decided to solve this problem by developing a website that helps people rent, book places, like Airbnb but longer term.
+1. **User Authentication**
+   - **Sign Up & Login**: Basic email/password authentication for users.
 
+2. **Property Listings**
+   - **Create Listings**: Sublessors can create property listings with descriptions and photos.
+   - **Search Listings**: Sublessees can search for properties by location and price.
+
+3. **Booking System**
+   - **Booking Requests**: Sublessees can send booking requests for properties.
+   - **Simple Booking Management**: Sublessors can accept or reject booking requests.
+
+4. **User Profiles**
+   - **Profile Management**: Users can update their profile information.
+
+5. **Basic Communication**
+   - **Messaging**: Simple messaging system for users to communicate about listings and bookings.
+
+#### Technology Stack
+
+- **Frontend**:
+  - **React.js**: For building the user interface.
+  - **React Router**: For navigation between different pages.
+
+- **Backend**:
+  - **Node.js**: For running the server.
+  - **Express.js**: For creating the API endpoints.
+
+- **Database**:
+  - **MongoDB**: For storing user data and property listings.
+
+- **Authentication**:
+  - **JWT (JSON Web Tokens)**: For user authentication.
+
+#### Development Setup
+
+1. **Frontend (React)**
+   - Create a new React app using `create-react-app`.
+   - Implement basic pages: Home, Login, Signup, Profile, Property Listings.
+   - Use Axios for making API calls to the backend.
+
+2. **Backend (Node.js + Express)**
+   - Set up a basic Express server.
+   - Create API endpoints for user authentication, creating listings, and managing bookings.
+   - Use Mongoose to interact with MongoDB.
+
+3. **Database (MongoDB)**
+   - Set up a MongoDB database (you can use MongoDB Atlas for a cloud solution).
+   - Create schemas for users and property listings.
+
+#### MVP Flow
+
+1. **User Sign Up/Login**: Users can create an account and log in.
+2. **Create Property Listing**: Logged-in users can create listings with descriptions and photos.
+3. **Search Listings**: Users can search for available properties by location and price.
+4. **Send Booking Request**: Users can send a booking request for a property.
+5. **Manage Bookings**: Sublessors can view and respond to booking requests.
+6. **Messaging**: Users can message each other to discuss subleasing details.
+
+#### Conclusion
+
+This MVP focuses on the essential features needed for a long-term subleasing platform, specifically targeting the needs of students. By using the MERN stack, the application will be scalable and maintainable, providing a solid foundation for future enhancements.
