@@ -38,22 +38,6 @@ The Long-Term Subleasing Platform is a web application designed to assist studen
 - **Authentication**:
   - **JWT (JSON Web Tokens)**: For user authentication.
 
-#### Development Setup
-
-1. **Frontend (React)**
-   - Create a new React app using `create-react-app`.
-   - Implement basic pages: Home, Login, Signup, Profile, Property Listings.
-   - Use Axios for making API calls to the backend.
-
-2. **Backend (Node.js + Express)**
-   - Set up a basic Express server.
-   - Create API endpoints for user authentication, creating listings, and managing bookings.
-   - Use Mongoose to interact with MongoDB.
-
-3. **Database (MongoDB)**
-   - Set up a MongoDB database (you can use MongoDB Atlas for a cloud solution).
-   - Create schemas for users and property listings.
-
 #### MVP Flow
 
 1. **User Sign Up/Login**: Users can create an account and log in.
