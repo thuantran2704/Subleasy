@@ -1,5 +1,8 @@
 ### Subleasy (MVP)
 
+#### Introduction
+Are you looking to sublease your place but struggling to find the right platform? Have you found traditional marketplaces inconvenient and not specifically designed for subleasing? Imagine a place where you can easily list your property for long-term sublease, or find the perfect place to stay during your university breaks. Introducing Subleasy, a platform designed to simplify the subleasing process and cater specifically to your needs as a student. Say goodbye to the clutter of general marketplaces and say hello to a streamlined, user-friendly experience tailored for long-term subleasing.
+
 #### Overview
 The Long-Term Subleasing Platform is a web application designed to assist students and other users in finding and listing long-term subleases for residential properties. The platform aims to streamline the subleasing process, providing a more focused and convenient solution compared to general marketplaces like Facebook Marketplace. Built using the MERN stack (MongoDB, Express.js, React, Node.js), this MVP (Minimum Viable Product) will help users rent and book places for extended periods, addressing the specific needs of students who need to sublease their accommodations during breaks.
 
