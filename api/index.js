@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require('express').Router();
 const cors = require('cors');
-const mongoose = require("mongoose");
+const dbConnect = require('./dbConnect.js');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const User = require('./models/user.js');
@@ -25,7 +25,6 @@ app.use(cors({
     origin: origin
 }));
 
-mongoose.connect(process.env.MONGO_URL);
 
 app.get('/test', (req,res)=> {
     res.json('test good');
@@ -79,4 +78,15 @@ app.get('/profile', (req, res) => {
     res.json(null);
     }
 })
+
+//get the listings
+express.get("listing", async (req, res) => {
+    try{
+
+    } catch(err){
+        
+    }
+});
+
+
 app.listen(4000);
