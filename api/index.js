@@ -81,7 +81,7 @@ app.get('/profile', (req, res) => {
 
 //get the listings
 express.get("listing", async (req, res) => {
-    try{
+    try{//what error could be here? // need research, design front end
 
     } catch(err){
         
