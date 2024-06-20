@@ -78,15 +78,25 @@ app.get('/profile', (req, res) => {
     res.json(null);
     }
 })
-
+/*
 //get the listings
 express.get("listing", async (req, res) => {
     try{//what error could be here? // need research, design front end
+        const page = parseInt(req.query.page) -1 || 0;
+        const limit = parseInt(req.query.limit) || 5;
+        const search = req.query.search || '';
+        let sort = req.query.sort || 'rating';
+        //rating here is rating the apartment complex, rather than individual apartments
+        //as you know, this is much more long term and has less usage than the short term airbnb
+        //so we use apartment complex instead of individual subleasor ratings or individuaal apartment rating.
+        //yes, blame management for this, but it is what it is.
 
     } catch(err){
-        
+        console.log(err);
+        res.status(500).json({error: true, message: 'internal server Error'});
     }
+
 });
 
-
+*/
 app.listen(4000);
