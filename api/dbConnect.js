@@ -15,6 +15,6 @@ const dbConnect = () => {
         console.log("Mongoose default connection is disconnected");
     });
 }
-//placeholder
+
 
 module.exports = dbConnect;
