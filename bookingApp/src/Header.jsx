@@ -24,6 +24,7 @@ export default function Header(){
           </svg>
           </button>
         </div>
+{/* design login page */}
         <Link to={'/login'} className='flex items-center border gap-2 border-gray-300 rounded-full py-2 px-4'>
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
