@@ -1,9 +1,17 @@
 const mongoose = require("mongoose");
-
+//havent been used yet. Follow original video to see how to use it
 const listingSchema = new mongoose.Schema({
     // What does a long term apartment listing have?
     
     title: {
+        type: String,
+        required: true
+    },
+    numberOfTenants:{
+        type: Number,
+        required: true
+    },
+    propertyType: {
         type: String,
         required: true
     },
@@ -86,5 +94,11 @@ const listingSchema = new mongoose.Schema({
     isFurnished: {
         type: Boolean,
         required: true
+    },
+    picture: {
+        type: String,
+        required: false
     }
 })
+
+module.exports = mongoose.model('listing', listingSchema);
