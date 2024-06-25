@@ -78,6 +78,7 @@ app.get('/profile', (req, res) => {
     res.json(null);
     }
 })
+//comment out the following code to avoid errors
 /*
 //get the listings
 express.get("listing", async (req, res) => {
