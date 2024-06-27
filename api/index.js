@@ -79,7 +79,7 @@ app.get('/profile', (req, res) => {
     }
 })
 /*
-//get the listings
+//get listings
 express.get("listing", async (req, res) => {
     try{//what error could be here? // need research, design front end
         const page = parseInt(req.query.page) -1 || 0;
