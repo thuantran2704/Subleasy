@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 //havent been used yet. Follow original video to see how to use it
 const listingSchema = new mongoose.Schema({
-    // What does a long term apartment listing have?
     
     title: {
         type: String,
