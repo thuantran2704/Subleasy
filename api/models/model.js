@@ -98,5 +98,5 @@ const listingSchema = new mongoose.Schema({
         required: false
     }
 })
-
+//listing model
 module.exports = mongoose.model('listing', listingSchema);
