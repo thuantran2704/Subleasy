@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const User = require('./models/user.js');
 const bcrypt = require('bcryptjs');
-
+const Listing = require('./models/listing.js');
 
 const app = express();
 
@@ -29,6 +29,51 @@ mongoose.connect(process.env.MONGO_URL);
 app.get('/test', (req,res)=> {
     res.json('test good');
 });
+
+app.post('/addListing', async (req, res) => {
+    const {
+        title,
+        description,
+        address,
+        price,
+        type,
+        bedrooms,
+        bathrooms,
+        squareFeet,
+        availableFrom,
+        leaseDuration,
+        petFriendly,
+        furnished,
+        amenities,
+        images,
+        contact
+    } = req.body;
+
+    try {
+        const listingDocument = await Listing.create({
+            title,
+            description,
+            address,
+            price,
+            type,
+            bedrooms,
+            bathrooms,
+            squareFeet,
+            availableFrom,
+            leaseDuration,
+            petFriendly,
+            furnished,
+            amenities,
+            images,
+            contact
+        });
+
+        res.json(listingDocument);
+    } catch (e) {
+        res.status(422).json(e);
+    }
+});
+
 
 app.post('/register', async (req,res) => {
     const {name, email, password } = req.body;
