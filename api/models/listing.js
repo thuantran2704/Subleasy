@@ -5,7 +5,6 @@ const ListingSchema = new Schema({
     title: { type: String, required: true }, // Title of the listing
     description: { type: String, required: true }, // Detailed description of the property
     address: {
-        street: { type: String, required: true },
         city: { type: String, required: true },
         state: { type: String, required: true },
         zip: { type: String, required: true }

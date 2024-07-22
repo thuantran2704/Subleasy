@@ -14,7 +14,6 @@ export default function IndexPage() {
     // State for listing form fields
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [street, setStreet] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [zip, setZip] = useState('');
@@ -40,7 +39,6 @@ export default function IndexPage() {
                 title,
                 description,
                 address: {
-                    street,
                     city,
                     state,
                     zip
