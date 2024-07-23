@@ -1,6 +1,7 @@
 import{Link} from "react-router-dom"
 import React, {useState} from 'react';
 import axios from "axios";
+import AnnouncementPopup, { announced } from './PopUp';
 export default function RegisterPage(){
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -8,17 +9,18 @@ export default function RegisterPage(){
     
     async function registerUser(ev) {
         ev.preventDefault();
-    try{
-        await axios.post('/register',{
-            name,
-            email,
-            password
-        });
-        alert('Registration Successful.');
-    } catch(e){
-        alert("Regsistration Failed. Please try again later");
+        try {
+            await axios.post('/register', {
+                name,
+                email,
+                password
+            });
+            announced("Registration Successful", "You have successfully registered. Please login to continue.");
+        } catch (e) {
+            alert("Registration Failed. Please try again later.");
+        }
     }
-}
+    
     return(
         <div className="mt-4 grow flex items-center justify-around">
             <div className = "mb-64">

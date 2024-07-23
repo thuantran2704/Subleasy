@@ -30,7 +30,7 @@ app.get('/test', (req,res)=> {
     res.json('test good');
 });
 
-app.post('/addListing', async (req, res) => {
+app.post('/listings', async (req, res) => {
     const {
         title,
         description,

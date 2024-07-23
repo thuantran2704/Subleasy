@@ -35,7 +35,7 @@ export default function IndexPage() {
     async function handleAddListing(ev) {
         ev.preventDefault();
         try {
-            await axios.post('/api/listings', {
+            await axios.post('/listings', {
                 title,
                 description,
                 address: {
@@ -86,7 +86,6 @@ export default function IndexPage() {
                     <form className="space-y-4" onSubmit={handleAddListing}>
                         <input type="text" placeholder="Title" value={title} onChange={ev => setTitle(ev.target.value)} className="w-full p-2 border rounded" required />
                         <textarea placeholder="Description" value={description} onChange={ev => setDescription(ev.target.value)} className="w-full p-2 border rounded" required />
-                        <input type="text" placeholder="Street" value={street} onChange={ev => setStreet(ev.target.value)} className="w-full p-2 border rounded" required />
                         <input type="text" placeholder="City" value={city} onChange={ev => setCity(ev.target.value)} className="w-full p-2 border rounded" required />
                         <input type="text" placeholder="State" value={state} onChange={ev => setState(ev.target.value)} className="w-full p-2 border rounded" required />
                         <input type="text" placeholder="Zip Code" value={zip} onChange={ev => setZip(ev.target.value)} className="w-full p-2 border rounded" required />
