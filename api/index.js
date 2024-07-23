@@ -17,7 +17,7 @@ const origin = 'http://localhost:5173';
 
 const  salt = bcrypt.genSaltSync(10);
 
-const jwtSecret = 'JT1qnpNpJe';
+const jtwSecret = 'JT1qnpNpJe';
 
 app.use(cors({
     credentials: true,
@@ -90,23 +90,33 @@ app.post('/register', async (req,res) => {
 }
 });
 
-app.post('/login', async (req,res) =>{
-    const {email, password} = req.body;
-    const userDocument = await User.findOne({email: email});
-    if(userDocument){
-        const accepted = bcrypt.compareSync(password, userDocument.password);
-        if(accepted){
-            jwt.sign({email: userDocument.email, id:userDocument._id}, jtwSecret, {}, (err, token) => {
-                if(err) throw err;
-                res.cookie('token', token).json('login successfully');
-            })
-            res.cookie('token', '').json('Went through');
+app.post('/login', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const userDocument = await User.findOne({ email: email });
+
+        if (userDocument) {
+            const accepted = bcrypt.compareSync(password, userDocument.password);
+            if (accepted) {
+                jwt.sign({ email: userDocument.email, id: userDocument._id }, jtwSecret, {}, (err, token) => {
+                    if (err) {
+                        console.error(err); // Log the error for debugging
+                        return res.status(500).json('Error signing the token');
+                    }
+                    res.cookie('token', token).json('Login successfully');
+                });
+            } else {
+                res.status(422).json('Wrong Password');
+            }
+        } else {
+            res.status(422).json('Password or Account incorrect');
         }
-    } else {
-        alert('Password or Account incorrect');
-        res.status(422).json('Wrong Password');
+    } catch (error) {
+        console.error(error); // Log the error for debugging
+        res.status(500).json('An error occurred');
     }
-})
+});
+
 
 
 app.listen(4000);

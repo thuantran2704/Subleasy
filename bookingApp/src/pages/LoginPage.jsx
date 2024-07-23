@@ -1,6 +1,7 @@
 import{Link} from "react-router-dom";
 import {useState} from 'react';
 import axios from "axios";
+import AnnouncementPopup, { announced } from '../PopUp';
 export default function LoginPage(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -8,9 +9,9 @@ export default function LoginPage(){
         ev.preventDefault();
         try{
         await axios.post('/login',{email,password});
-        alert('Login succesful');
+        announced("Login Successful", "You have successfully logged in.");
         } catch(e) {
-            alert('Login failed');
+        announced("Login Failed", "Login failed. Please try again.");
         }
     }
     return(
@@ -31,6 +32,7 @@ export default function LoginPage(){
                     Don't have an account? <Link to={'/register'} className = "underline text-bn">Register here</Link>
                 </div>
             </form>
+            <AnnouncementPopup/>
             </div>
         </div>
     );

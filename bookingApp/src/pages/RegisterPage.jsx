@@ -1,7 +1,7 @@
 import{Link} from "react-router-dom"
 import React, {useState} from 'react';
 import axios from "axios";
-import AnnouncementPopup, { announced } from './PopUp';
+import AnnouncementPopup, { announced } from '../PopUp';
 export default function RegisterPage(){
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -17,7 +17,8 @@ export default function RegisterPage(){
             });
             announced("Registration Successful", "You have successfully registered. Please login to continue.");
         } catch (e) {
-            alert("Registration Failed. Please try again later.");
+            announced("Registration Failed", "Registration failed. Please try again.");
+            
         }
     }
     
@@ -26,7 +27,7 @@ export default function RegisterPage(){
             <div className = "mb-64">
             <h1 className="text-4xl text-center mb-4">Register</h1>
             <form className="max-w-md mx-auto" onSubmit = {registerUser}>
-                <input type ="name" placeholder='your name' value = {name} onChange = {ev => setName(ev.target.value)}/>
+                <input type ="text" placeholder='your name' value = {name} onChange = {ev => setName(ev.target.value)}/>
                 <input type="email"
                         placeholder= "your@email.com" 
                         value = {email} 
@@ -41,6 +42,7 @@ export default function RegisterPage(){
                     Already a member? <Link to={'/login'} className = "underline text-bn">Login</Link>
                 </div>
             </form>
+            <AnnouncementPopup/>
             </div>
         </div>
     );
