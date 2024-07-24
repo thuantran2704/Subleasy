@@ -11,7 +11,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'http://localhost:4000/';
 
 
-
+//should have a page profile, add case where if cookie said logined then displayed profile. Everyone should be able to list and view other listing
 function App() {
 
   return (
