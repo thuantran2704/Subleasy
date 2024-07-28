@@ -73,7 +73,7 @@ export default function IndexPage() {
             <button className="absolute top-4 right-4 bg-blue-500 text-white px-4 py-2 rounded z-50" onClick={openForm}>
                 +
             </button>
-            {/* The listings */}
+        
             {/* The form */}
             <div className="form-popup fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50" id="myForm" style={{ display: 'none' }}>
                 <div className="relative bg-white p-6 rounded-lg shadow-md w-full max-w-sm h-auto max-h-[80%] overflow-auto mt-8">
