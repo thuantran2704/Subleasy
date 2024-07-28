@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const User = require('./models/user.js');
 const bcrypt = require('bcryptjs');
 const Listing = require('./models/listing.js');
-
+const cookieParser = require('cookie-parser');
 const app = express();
 
 dotenv.config();
@@ -17,7 +17,7 @@ const origin = 'http://localhost:5173';
 
 const  salt = bcrypt.genSaltSync(10);
 
-const jtwSecret = 'JT1qnpNpJe';
+const jtwSecret = process.env.JWT_SECRET;
 
 app.use(cors({
     credentials: true,
@@ -90,6 +90,66 @@ app.post('/register', async (req,res) => {
 }
 });
 
+/*
+app.post('/login', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const userDocument = await User.findOne({ email: email });
+
+        if (!userDocument) {
+            return res.status(422).json('Account does not exist');
+        }
+
+        const isPasswordValid = bcrypt.compareSync(password, userDocument.password);
+        if (!isPasswordValid) {
+            return res.status(422).json('Wrong Password');
+        }
+
+        const token = jwt.sign({ email: userDocument.email, id: userDocument._id }, jwtSecret, { expiresIn: '1h' });
+
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'Strict',
+            maxAge: 3600000 // 1 hour
+        }).json('Login successfully');
+    } catch (error) {
+        console.error(error); // Log the error for debugging
+        res.status(500).json('An error occurred');
+    }
+});
+*/
+app.post('/logout', (req, res) => {
+    res.clearCookie('token', {
+        httpOnly: true,
+        secure: true, // use true if you're using HTTPS
+        sameSite: 'Strict',
+    }).json('Logout successfully');
+});
+
+const verifyToken = (req, res, next) => {
+    const token = req.cookies.token;
+    if (!token) {
+        return res.status(401).json('Unauthorized');
+    }
+    jwt.verify(token, jwtSecret, (err, user) => {
+        if (err) {
+            return res.status(401).json('Unauthorized');
+        }
+        req.user = user;
+        next();
+    });
+};
+//function to verify token
+app.get('/protected-listings', verifyToken, async (req, res) => {
+    try {
+        const listings = await Listing.find();
+        res.json(listings);
+    } catch (e) {
+        res.status(500).json('An error occurred');
+    }
+});
+//get listings
 app.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
